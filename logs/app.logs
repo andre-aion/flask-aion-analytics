@@ -1,0 +1,10 @@
+2019-01-09 19:16:02,023 - logs/app.logs:15 - WARNING - logs/app.logs
+2019-01-09 19:16:04,847 - logs/app.logs:15 - WARNING - logs/app.logs
+2019-01-09 19:16:05,167 - logs/app.logs:15 - WARNING - logs/app.logs
+2019-01-09 19:16:24,220 - logs/app.logs:56 - WARNING - otp secret:4U3MAIXZ3Z7MFIOC
+2019-01-09 19:16:24,226 - logs/app.logs:106 - WARNING - username:admin
+2019-01-09 19:16:24,226 - logs/app.logs:107 - WARNING - secret:4U3MAIXZ3Z7MFIOC
+2019-01-09 19:16:24,227 - logs/app.logs:112 - WARNING - 2fa url:otpauth://totp/aion-analytics:admin?issuer=aion-analytics&secret=4U3MAIXZ3Z7MFIOC
+2019-01-09 19:16:24,227 - logs/app.logs:212 - WARNING - auth_uri:otpauth://totp/aion-analytics:admin?issuer=aion-analytics&secret=4U3MAIXZ3Z7MFIOC
+2019-01-09 19:16:24,275 - logs/app.logs:232 - WARNING - FILE WRITTEN
+2019-01-09 19:17:33,775 - logs/app.logs:15 - WARNING - logs/app.logs

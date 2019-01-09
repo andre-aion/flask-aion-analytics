@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+    <h1>Two Factor Authentication Setup</h1>
+    <p>You are almost done! Please start authenticator on your smartphone and scan the following QR Code with it:</p>
+    <br/>
+    <p><img id="qrcode" src= "{{ qr_code }}" alt="Sorry, Error"></p>
+    <br/>
+    <p>I'm done, take me to the <a href="{{ url_for('login') }}">Login</a> page!</p>
+{% endblock %}
