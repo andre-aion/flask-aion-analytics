@@ -1,10 +1,34 @@
-2019-01-09 19:16:02,023 - logs/app.logs:15 - WARNING - logs/app.logs
-2019-01-09 19:16:04,847 - logs/app.logs:15 - WARNING - logs/app.logs
-2019-01-09 19:16:05,167 - logs/app.logs:15 - WARNING - logs/app.logs
-2019-01-09 19:16:24,220 - logs/app.logs:56 - WARNING - otp secret:4U3MAIXZ3Z7MFIOC
-2019-01-09 19:16:24,226 - logs/app.logs:106 - WARNING - username:admin
-2019-01-09 19:16:24,226 - logs/app.logs:107 - WARNING - secret:4U3MAIXZ3Z7MFIOC
-2019-01-09 19:16:24,227 - logs/app.logs:112 - WARNING - 2fa url:otpauth://totp/aion-analytics:admin?issuer=aion-analytics&secret=4U3MAIXZ3Z7MFIOC
-2019-01-09 19:16:24,227 - logs/app.logs:212 - WARNING - auth_uri:otpauth://totp/aion-analytics:admin?issuer=aion-analytics&secret=4U3MAIXZ3Z7MFIOC
-2019-01-09 19:16:24,275 - logs/app.logs:232 - WARNING - FILE WRITTEN
-2019-01-09 19:17:33,775 - logs/app.logs:15 - WARNING - logs/app.logs
+2019-01-09 23:39:27,898 - logs/app.logs:15 - WARNING - logs/app.logs
+2019-01-09 23:39:28,738 - logs/app.logs:15 - WARNING - logs/app.logs
+2019-01-09 23:39:41,229 - logs/app.logs:233 - WARNING - bokeh url:
+<script src="http://localhost:5006/aion-analytics/autoload.js?bokeh-autoload-element=38c9da90-79ec-4649-aab0-13362b751d26&bokeh-app-path=/aion-analytics&bokeh-absolute-url=http://localhost:5006/aion-analytics&bokeh-session-id=g2HI3EZSZZvPn5clXScc9ORF0Wvxee1IMUQGEC6Ef3ga" id="38c9da90-79ec-4649-aab0-13362b751d26"></script>
+2019-01-10 00:00:52,447 - logs/app.logs:15 - WARNING - logs/app.logs
+2019-01-10 00:00:53,218 - logs/app.logs:15 - WARNING - logs/app.logs
+2019-01-10 00:02:25,646 - logs/app.logs:233 - WARNING - bokeh url:
+<script src="http://localhost:5006/aion-analytics/autoload.js?bokeh-autoload-element=f2a19bc2-9759-4bb7-8796-f411f3095fa9&bokeh-app-path=/aion-analytics&bokeh-absolute-url=http://localhost:5006/aion-analytics&bokeh-session-id=wSRVDPETGOZSBilSraSLjF0ZDBVQZjJGo9OBeHTHLU73" id="f2a19bc2-9759-4bb7-8796-f411f3095fa9"></script>
+2019-01-10 00:02:37,998 - logs/app.logs:233 - WARNING - bokeh url:
+<script src="http://localhost:5006/aion-analytics/autoload.js?bokeh-autoload-element=366ff86e-34e9-47b9-9836-8e1f4b3b7339&bokeh-app-path=/aion-analytics&bokeh-absolute-url=http://localhost:5006/aion-analytics&bokeh-session-id=7Bz7JCwMLAFOvt01lXEZdOFqWvcbRfLZYFb9C10vRhMd" id="366ff86e-34e9-47b9-9836-8e1f4b3b7339"></script>
+2019-01-10 00:18:37,405 - logs/app.logs:15 - WARNING - logs/app.logs
+2019-01-10 00:18:38,195 - logs/app.logs:15 - WARNING - logs/app.logs
+2019-01-10 00:18:54,615 - logs/app.logs:233 - WARNING - bokeh url:
+<script src="http://localhost:5006/aion-analytics/autoload.js?bokeh-autoload-element=913c3abe-41e2-40df-a22f-d14e44610909&bokeh-app-path=/aion-analytics&bokeh-absolute-url=http://localhost:5006/aion-analytics&bokeh-session-id=hv147fbjvQrEbl5ppcq9QYqG002artApMpBUlqxg9fGB" id="913c3abe-41e2-40df-a22f-d14e44610909"></script>
+2019-01-10 00:21:18,088 - logs/app.logs:233 - WARNING - bokeh url:
+<script src="http://localhost:5006/aion-analytics/autoload.js?bokeh-autoload-element=47e91278-6bca-481c-8837-992098e87c8b&bokeh-app-path=/aion-analytics&bokeh-absolute-url=http://localhost:5006/aion-analytics&bokeh-session-id=ZgB82nATt9m7sdXcQRLGmsQGs0tPHUUnP237ziybaiH6" id="47e91278-6bca-481c-8837-992098e87c8b"></script>
+2019-01-10 00:22:19,782 - logs/app.logs:15 - WARNING - logs/app.logs
+2019-01-10 00:22:20,557 - logs/app.logs:15 - WARNING - logs/app.logs
+2019-01-10 00:22:38,029 - logs/app.logs:233 - WARNING - bokeh url:
+<script src="http://localhost:5006/aion-analytics/autoload.js?bokeh-autoload-element=be02068d-ca36-422a-b524-d43abf4a4d1c&bokeh-app-path=/aion-analytics&bokeh-absolute-url=http://localhost:5006/aion-analytics&bokeh-session-id=fHLhP25kNOizyJfLPqspXS78noBsLoTSe2Dawirty9ZC" id="be02068d-ca36-422a-b524-d43abf4a4d1c"></script>
+2019-01-10 00:23:09,962 - logs/app.logs:15 - WARNING - logs/app.logs
+2019-01-10 00:23:36,289 - logs/app.logs:15 - WARNING - logs/app.logs
+2019-01-10 00:23:37,060 - logs/app.logs:15 - WARNING - logs/app.logs
+2019-01-10 00:23:50,026 - logs/app.logs:233 - WARNING - bokeh url:http://localhost:5006/main?bokeh-session-id=MmfDUNfYwD0jtTxkSWyuffIEqajG0jA8ts0DLKOUpizl
+2019-01-10 00:24:54,201 - logs/app.logs:15 - WARNING - logs/app.logs
+2019-01-10 00:24:59,301 - logs/app.logs:15 - WARNING - logs/app.logs
+2019-01-10 00:25:00,353 - logs/app.logs:15 - WARNING - logs/app.logs
+2019-01-10 00:25:14,343 - logs/app.logs:233 - WARNING - bokeh url:http://localhost:5006/aion-analytics?bokeh-session-id=Qg6SbJktAJkshY6lqPHGvX21Z1XUblSLBXTHoFSZz5WQ
+2019-01-10 00:26:21,640 - logs/app.logs:15 - WARNING - logs/app.logs
+2019-01-10 00:28:02,344 - logs/app.logs:15 - WARNING - logs/app.logs
+2019-01-10 00:28:03,079 - logs/app.logs:15 - WARNING - logs/app.logs
+2019-01-10 00:28:19,660 - logs/app.logs:228 - WARNING - bokeh url:http://localhost:5006/aion-analytics?bokeh-session-id=US1qIvaA3Z715qX2Ml0B2CpqxY4RDwRQIAuoKK6JlG1z
+2019-01-10 00:28:57,090 - logs/app.logs:228 - WARNING - bokeh url:http://localhost:5006/aion-analytics?bokeh-session-id=Y0jC4zo9hLv3hfOBK4JkGS2h4EM6mEvJ1Bflpw2KHo3l
+2019-01-10 00:29:18,394 - logs/app.logs:228 - WARNING - bokeh url:http://localhost:5006/aion-analytics?bokeh-session-id=Fyl7LVT6MsdrhESQaaSMQyNcjmb2j2ZKL6VoUaoXvv5R

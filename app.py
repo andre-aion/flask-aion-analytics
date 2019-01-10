@@ -1,9 +1,6 @@
-import base64
-import binascii
-import hmac, base64, struct, hashlib, time
 import os
-from io import BytesIO
 
+from bokeh.client import pull_session
 from bokeh.util import session_id
 from flask import Flask, render_template, redirect, url_for, flash, session, \
     abort, send_file, make_response
@@ -18,9 +15,9 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import Required, Length, EqualTo
 import onetimepass
 from mylogger import mylogger
-from flask_qrcode import QRcode
 import pyotp
 import qrcode
+from bokeh.embed import server_document, server_session
 logger = mylogger(__file__)
 
 # create application instance
@@ -51,7 +48,6 @@ class User(UserMixin, db.Model):
         if self.otp_secret is None:
 
             # generate a random secret
-            #self.otp_secret = base64.b32encode(os.urandom(16)).decode('utf-8')
             self.otp_secret = pyotp.random_base32()
             logger.warning("otp secret:%s",self.otp_secret)
 
@@ -65,50 +61,14 @@ class User(UserMixin, db.Model):
     def verify_password(self, password):
         return check_password_hash(self.password_hash, password)
 
-    def token_bytes(self,nbytes):
-        """Return a random byte string containing *nbytes* bytes.
-        If *nbytes* is ``None`` or not supplied, a reasonable
-        default is used.
-        token_bytes(16)  #doctest:+SKIP
-        b'\\xebr\\x17D*t\\xae\\xd4\\xe3S\\xb6\\xe2\\xebP1\\x8b'
-        """
-        return os.urandom(nbytes)
-
-    def token_hex(self, nbytes):
-        """Return a random text string, in hexadecimal.
-        The string has *nbytes* random bytes, each byte converted to two
-        hex digits.  If *nbytes* is ``None`` or not supplied, a reasonable
-        default is used.
-        token_hex(16)  #doctest:+SKIP
-        'f9bf78b9a18ce6d46a0cd2b0b86df9da'
-        """
-        return binascii.hexlify(self.token_bytes(nbytes)).decode('ascii')
-
-    import hmac, base64, struct, hashlib, time
-
-    def get_hotp_token(self,secret, intervals_no):
-        key = base64.b32decode(secret, True)
-        msg = struct.pack(">Q", intervals_no)
-        h = hmac.new(key, msg, hashlib.sha1).digest()
-        o = ord(h[19]) & 15
-        h = (struct.unpack(">I", h[o:o + 4])[0] & 0x7fffffff) % 1000000
-        return h
-
-    def get_totp_token(self,secret):
-        return self.get_hotp_token(secret, intervals_no=int(time.time()) // 30)
-
     def get_totp_uri(self):
         try:
-            '''
-            auth_uri = 'otpauth://totp/aion-analytics:{0}?secret={1}&issuer=aion-analytics' \
-                .format(self.username, self.otp_secret)
-            '''
             logger.warning("username:%s",self.username)
             logger.warning("secret:%s",self.otp_secret)
 
             auth_uri = pyotp.totp.TOTP(self.otp_secret)\
                 .provisioning_uri(self.username,issuer_name="aion-analytics")
-
+            session.pop('username')
             logger.warning("2fa url:%s",auth_uri)
             return auth_uri
         except Exception:
@@ -141,12 +101,6 @@ class LoginForm(Form):
     submit = SubmitField('Login')
 
 
-@app.route('/')
-def index():
-    s_id = session_id.generate_session_id()
-    #return redirect("http://localhost:5006/main?bokeh-session-id={}".format(s_id), code=302)
-    url = "http://localhost:5006/main?bokeh-session-id={}".format(s_id)
-    return render_template('index.html', url=url)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -171,12 +125,13 @@ def register():
             session['username'] = user.username
 
             return set_qrcode()
+
         else:
             return render_template('register.html', form=form)
     except Exception:
         logger.error("register",exc_info=True)
 
-
+'''
 
 @app.route('/twofactor')
 def two_factor_setup():
@@ -195,7 +150,7 @@ def two_factor_setup():
 
     except Exception:
         logger.error("two factor",exc_info=True)
-
+'''
 
 #@app.route('/qrcode', methods=['GET'])
 def set_qrcode():
@@ -264,10 +219,19 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
+@app.route('/', methods=['GET'])
+def index():
+    # pull a new session from a running Bokeh server
+    bokeh_server_url = 'http://localhost:5006/aion-analytics'
+    bokeh_session= pull_session(url=bokeh_server_url)
+    script = "{}?bokeh-session-id={}".format(bokeh_server_url, bokeh_session.id)
+    logger.warning("bokeh url:%s", script)
+
+    return render_template('index.html', script=script, template="Flask")
 
 # create database tables if they don't exist yet
 db.create_all()
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='localhost',port=8080, debug=True)
