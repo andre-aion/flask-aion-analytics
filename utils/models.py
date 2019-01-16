@@ -1,10 +1,12 @@
-from app import Base
+import re
+
+from flask_security.utils import hash_password, verify_password
+
+from utils.database import Base
 from flask_security import UserMixin, RoleMixin
-from sqlalchemy import create_engine
-from sqlalchemy.orm import relationship, backref
+from sqlalchemy.orm import relationship, backref, validates
 from sqlalchemy import Boolean, DateTime, Column, Integer, \
                        String, ForeignKey
-
 
 class RolesUsers(Base):
     __tablename__ = 'roles_users'
@@ -23,7 +25,7 @@ class User(Base, UserMixin):
     id = Column(Integer, primary_key=True)
     email = Column(String(255), unique=True)
     username = Column(String(255))
-    password = Column(String(255))
+    password_hash = Column(String(512))
     last_login_at = Column(DateTime())
     current_login_at = Column(DateTime())
     last_login_ip = Column(String(100))
@@ -33,3 +35,12 @@ class User(Base, UserMixin):
     confirmed_at = Column(DateTime())
     roles = relationship('Role', secondary='roles_users',
                          backref=backref('users', lazy='dynamic'))
+
+    @property
+    def password(self):
+        return self.password_hash
+
+    @password.setter
+    def password(self, password):
+        self.password_hash = hash_password(password)
+
