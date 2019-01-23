@@ -23,6 +23,9 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url_for('home') }}"><span><img height=50 src="{{ url_for('static', filename='images/favicon.ico') }}"></span></a></li>
                     <li><a href="{{ url_for('home') }}"><h4>Aion Analytics</h4></a></li>
+                    {% if current_user.is_authenticated %}
+                        <li><h5 style="color:palegreen;padding-top:17px;">welcomes {{ current_user.email }}!</h5></li>
+                    {% endif %}
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

@@ -3,14 +3,12 @@
 {% block content %}
 <div class = "aion-analytics-div">
     {% if current_user.is_authenticated %}
-
-    <h4>Welcome, {{ current_user.username }}!</h4>
     <iframe src="{{ script | safe }}" width="1300" height="1400">
 
     </iframe>
 
     {% else %}
-    <h4>Welcome, Stranger!</h4>
+    <h4>Hello, Stranger!</h4>
     {% endif %}
 </div>
 {% endblock %}
