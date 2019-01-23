@@ -7,6 +7,7 @@ from flask_security import Security, login_required, \
 from utils.database import db_session
 from utils.models import User, Role
 from flask_bootstrap import Bootstrap
+from bokeh.util.session_id import generate_session_id
 #from customizations.restricted_register_form import RestrictedRegisterForm
 
 
@@ -48,12 +49,19 @@ security = Security(app, user_datastore)
 @login_required
 def home():
     # pull a new session from a running Bokeh server
-    bokeh_server_url = 'http://localhost:5006/aion-analytics'
-    bokeh_session = pull_session(url=bokeh_server_url)
-    script = "{}?bokeh-session-id={}".format(bokeh_server_url, bokeh_session.id)
+    bokeh_server_url = 'http://192.168.1.15:5006/aion-analytics'
+    #bokeh_session = pull_session(url=bokeh_server_url)
+    bokeh_session = generate_session_id()
+    script = "{}?bokeh-session-id={}".format(bokeh_server_url, bokeh_session)
     logger.warning("bokeh url:%s", script)
     return render_template('index.html', script=script, template="Flask")
 
 
+@app.route('/tree', methods=['GET', 'POST'])
+def tree():
+    return render_template('tree.html')
+
+
+
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0',port=5000)

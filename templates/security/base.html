@@ -2,6 +2,7 @@
 
 {% block head %}
     {{super()}}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
 {% endblock %}
@@ -25,6 +26,7 @@
                     <li><a href="{{ url_for('home') }}"><h4>Aion Analytics</h4></a></li>
                     {% if current_user.is_authenticated %}
                         <li><h5 style="color:palegreen;padding-top:17px;">welcomes {{ current_user.email }}!</h5></li>
+                        <li><a href="{{ url_for('tree') }}"><h5 style="padding-left:40px;padding-top:3px">Show Churn tree</h5></a></li>
                     {% endif %}
 
                 </ul>
